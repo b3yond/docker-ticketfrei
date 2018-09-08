@@ -10,7 +10,7 @@ services:
     volumes:
       - ./config.toml:/srv/ticketfrei/config.toml
       - ./db.sqlite:/var/ticketfrei/db.sqlite
-      - ./frontend.log:/var/log/ticketfrei/frontend.log
+      - ./frontend.log:/var/log/ticketfrei/error.log
 
   backend:
     image: tf-backend

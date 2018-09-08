@@ -11,4 +11,4 @@ RUN mkdir -p /var/ticketfrei
 RUN mkdir -p /var/log/ticketfrei
 EXPOSE 80
 RUN service nginx restart
-CMD ["python3","frontend.py",">","/var/log/frontend.log"]
+CMD ["python3","/srv/ticketfrei/frontend.py"]

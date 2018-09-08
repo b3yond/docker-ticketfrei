@@ -22,6 +22,9 @@ Then you should modify the config.toml for your needs:
 ```
 cp config.toml.example config.toml
 vim config.toml
+touch backend.log
+touch frontend.log
+touch db.sqlite
 ```
 
 Now you can run the docker-compose file to start up the containers:
