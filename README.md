@@ -23,6 +23,7 @@ cp config.toml.example config.toml
 touch backend.log
 touch frontend.log
 touch db.sqlite
+chmod 600 traefik/acme.json
 ```
 
 Then you should modify the config.toml for your needs:
