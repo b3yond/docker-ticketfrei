@@ -4,13 +4,14 @@ services:
   frontend:
     image: tf-frontend
     #    command: python3 frontend.py > /var/log/ticketfrei/frontend.log
-    ports:
-      - 80:80
-      - 443:443
     volumes:
       - ./config.toml:/srv/ticketfrei/config.toml
       - ./db.sqlite:/var/ticketfrei/db.sqlite
       - ./frontend.log:/var/log/ticketfrei/error.log
+    labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=ticketfrei.example.org
+      - traefik.port=80
 
   backend:
     image: tf-backend
@@ -18,4 +19,15 @@ services:
       - ./config.toml:/srv/ticketfrei/config.toml
       - ./db.sqlite:/var/ticketfrei/db.sqlite
       - ./backend.log:/var/log/ticketfrei/backend.log
+
+  proxy:
+    image: traefik
+    command: --configFile=/traefik.toml
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./traefik/traefik.toml:/traefik.toml
+      - ./traefik/acme.json:/acme.json
+      - /var/run/docker.sock:/var/run/docker.sock
 
