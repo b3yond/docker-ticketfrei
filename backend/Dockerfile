@@ -9,4 +9,5 @@ RUN git checkout multi-deployment
 RUN pip3 install tweepy pytoml Mastodon.py pyjwt pylibscrypt bottle
 RUN mkdir -p /var/ticketfrei
 RUN mkdir -p /var/log/ticketfrei
+CMD ["git","pull"]
 CMD ["python3","/srv/ticketfrei/backend.py"]
