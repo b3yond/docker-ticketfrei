@@ -9,6 +9,7 @@ ticketfrei.sqlite-journal
 db.sqlite
 frontend.log
 backend.log
+traefik/acme.json
 seen_toots.pickle
 seen_toots.pickle.part
 pip-selfcheck.json
