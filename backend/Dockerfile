@@ -5,8 +5,8 @@ RUN apt install -y python3-pip git
 
 RUN git clone https://github.com/b3yond/ticketfrei /srv/ticketfrei
 WORKDIR /srv/ticketfrei
-RUN git checkout multi-deployment
-RUN pip3 install tweepy pytoml Mastodon.py pyjwt pylibscrypt bottle
+RUN git checkout stable2
+RUN pip3 install tweepy pytoml Mastodon.py pyjwt pylibscrypt twx
 RUN mkdir -p /var/ticketfrei
 RUN mkdir -p /var/log/ticketfrei
 CMD ["git","pull"]
