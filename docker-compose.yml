@@ -12,6 +12,8 @@ services:
       - traefik.enable=true
       - traefik.frontend.rule=Host:ticketfrei.example.org
       - traefik.port=80
+    networks:
+      - web
 
   backend:
     image: ticketfrei/backend
@@ -19,6 +21,8 @@ services:
       - ./config.toml:/srv/ticketfrei/config.toml
       - ./db.sqlite:/var/ticketfrei/db.sqlite
       - ./backend.log:/var/log/ticketfrei/backend.log
+    networks:
+      - web
 
   proxy:
     image: traefik
@@ -30,4 +34,10 @@ services:
       - ./traefik/traefik.toml:/traefik.toml
       - ./traefik/acme.json:/acme.json
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
 
