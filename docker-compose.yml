@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   frontend:
-    image: tf-frontend
+    image: ticketfrei/frontend
     #    command: python3 frontend.py > /var/log/ticketfrei/frontend.log
     volumes:
       - ./config.toml:/srv/ticketfrei/config.toml
@@ -14,7 +14,7 @@ services:
       - traefik.port=80
 
   backend:
-    image: tf-backend
+    image: ticketfrei/backend
     volumes:
       - ./config.toml:/srv/ticketfrei/config.toml
       - ./db.sqlite:/var/ticketfrei/db.sqlite

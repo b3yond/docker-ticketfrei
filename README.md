@@ -7,8 +7,8 @@ These are the Docker containers for the [Ticketfrei Sousveillance Bot](https://g
 Building the Docker containers is supposed to be easy:
 
 ```
-docker build --no-cache -t="tf-backend" backend/
-docker build --no-cache -t="tf-frontend" frontend/
+docker build --no-cache -t ticketfrei/backend backend/
+docker build --no-cache -t ticketfrei/frontend frontend/
 ```
 
 Now you can use the Docker containers.
