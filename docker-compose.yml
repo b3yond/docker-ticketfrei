@@ -9,7 +9,7 @@ services:
       - ./frontend.log:/var/log/ticketfrei/error.log
     labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:ticketfrei.example.org
+      - traefik.frontend.rule=Host:${HOST}
       - traefik.port=80
     environment:
       - CONSUMER_KEY=${CONSUMER_KEY}

@@ -19,29 +19,25 @@ First install [docker](https://docs.docker.com/install/#server) and [docker-comp
 
 Now we need to create some files for later configuration:
 ```
-cp config.toml.example config.toml
 touch backend.log
 touch frontend.log
 touch db.sqlite
 chmod 600 traefik/acme.json
 ```
 
-Then you should modify the config.toml for your needs:
+If you want to change the configuration, add environment variables to .env.
+Variables you don't change will be assigned default values.
+
+A good example is: `HOST=ticketfrei.example.org`. Substitute your domain name.
 
 ```
-vim config.toml
+vim .env
 ```
 
 And enter your domain and e-mail-address in the traefik.toml, if you want let's encrypt:
 
 ```
 vim traefik/traefik.toml
-```
-
-In the docker-compose file, you have to exchange "example.org" with your domain:
-
-```
-vim docker-compose.yml
 ```
 
 Now you can run the docker-compose file to start up the containers:
