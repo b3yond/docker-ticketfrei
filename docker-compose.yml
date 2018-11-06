@@ -5,22 +5,32 @@ services:
     image: ticketfrei/frontend
     #    command: python3 frontend.py > /var/log/ticketfrei/frontend.log
     volumes:
-      - ./config.toml:/srv/ticketfrei/config.toml
       - ./db.sqlite:/var/ticketfrei/db.sqlite
       - ./frontend.log:/var/log/ticketfrei/error.log
     labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:ticketfrei.example.org
       - traefik.port=80
+    environment:
+      - CONSUMER_KEY=${CONSUMER_KEY}
+      - CONSUMER_SECRET=${CONSUMER_SECRET}
+      - HOST=${HOST}
+      - PORT=${PORT}
+      - DB_PATH=${DB_PATH}
     networks:
       - web
 
   backend:
     image: ticketfrei/backend
     volumes:
-      - ./config.toml:/srv/ticketfrei/config.toml
       - ./db.sqlite:/var/ticketfrei/db.sqlite
       - ./backend.log:/var/log/ticketfrei/backend.log
+    environment:
+      - CONSUMER_KEY=${CONSUMER_KEY}
+      - CONSUMER_SECRET=${CONSUMER_SECRET}
+      - CONTACT=${CONTACT}
+      - MBOX_USER=${MBOX_USER}
+      - DB_PATH=${DB_PATH}
     networks:
       - web
 
