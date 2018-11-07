@@ -64,3 +64,16 @@ CONTACT=admin@example.org
 DB_PATH=/var/ticketfrei/db.sqlite  # if you mount a different db to another mountpoint.
 ```
 
+If you don't set a variable in this file, `docker-compose up -d` will show a
+warning:
+
+```
+WARNING: The CONTACT variable is not set. Defaulting to a blank string.
+docker-ticketfrei_proxy_1 is up-to-date
+Recreating docker-ticketfrei_frontend_1 ... done
+Recreating docker-ticketfrei_backend_1  ... done
+```
+
+Don't worry about this - if an env variable is a blank string, it is set to a
+default value inside the container.
+
