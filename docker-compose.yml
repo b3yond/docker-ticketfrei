@@ -29,7 +29,6 @@ services:
       - CONSUMER_KEY=${CONSUMER_KEY}
       - CONSUMER_SECRET=${CONSUMER_SECRET}
       - CONTACT=${CONTACT}
-      - MBOX_USER=${MBOX_USER}
       - DB_PATH=${DB_PATH}
     networks:
       - web
