@@ -1,6 +1,6 @@
 # Docker Containers for Ticketfrei
 
-These are the Docker containers for the [Ticketfrei Sousveillance Bot](https://github.com/b3yond/ticketfrei).
+These are the Docker containers for the [Ticketfrei Sousveillance Bot](https://github.com/ticketfrei/ticketfrei).
 
 ## Build the Docker Containers yourself
 
