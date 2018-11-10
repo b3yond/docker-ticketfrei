@@ -42,9 +42,10 @@ encrypt:
 vim traefik/traefik.toml
 ```
 
-Now you can run the docker-compose file to start up the containers:
+Now you can create the network and run the docker-compose file to start up the containers:
 
 ```
+docker network create web
 docker-compose up -d
 ```
 

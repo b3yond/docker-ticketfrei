@@ -1,7 +1,7 @@
-From ubuntu
+From alpine
 
-RUN apt update
-RUN apt install -y python3-pip git 
+RUN apk update
+RUN apk add python3 git gcc musl-dev python3-dev libffi-dev openssl-dev
 
 RUN git clone https://github.com/ticketfrei/ticketfrei /srv/ticketfrei
 WORKDIR /srv/ticketfrei
