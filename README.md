@@ -17,37 +17,14 @@ Now you can use the Docker containers.
 
 First install [docker](https://docs.docker.com/install/#server) and [docker-compose](https://docs.docker.com/compose/install/).
 
-Now we need to create some files for later configuration:
+Now you can run the setup script to configure everything:
 
 ```
-touch backend.log
-touch frontend.log
-touch db.sqlite
-chmod 600 traefik/acme.json
+./setup.sh
 ```
 
-If you want to change the configuration, add environment variables to .env.
-Variables you don't change will be assigned default values.
-
-Below there are the config options.
-
-```
-vim .env
-```
-
-And enter your domain and e-mail-address in the traefik.toml, if you want let's
-encrypt:
-
-```
-vim traefik/traefik.toml
-```
-
-Now you can create the network and run the docker-compose file to start up the containers:
-
-```
-docker network create web
-docker-compose up -d
-```
+It saves your config values in the .env file, which is automatically parsed by
+docker-compose.
 
 e voila :) Ticketfrei should be running.
 

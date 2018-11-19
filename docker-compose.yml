@@ -10,7 +10,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:${HOST}
-      - traefik.port=80
+      - traefik.port=${PORT}
     environment:
       - CONSUMER_KEY=${CONSUMER_KEY}
       - CONSUMER_SECRET=${CONSUMER_SECRET}
