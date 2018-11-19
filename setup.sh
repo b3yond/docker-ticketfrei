@@ -14,7 +14,7 @@ fi
 
 # pull status quo settings
 oldhostname=$HOST
-oldemail=$EMAIL
+oldemail=$CONTACT
 oldckey=$CONSUMER_KEY
 oldcsecret=$CONSUMER_SECRET
 oldport=$PORT
@@ -23,8 +23,8 @@ olddbpath=$DB_PATH
 # ask for config values
 echo -n "1) enter your domain name[$HOST]: "
 read HOST
-echo -n "2) enter your contact email[$EMAIL]: "
-read EMAIL
+echo -n "2) enter your contact email[$CONTACT]: "
+read CONTACT
 echo -n "3) enter the port[$PORT]: "
 read PORT
 echo -n "4) enter a custom database path[$DB_PATH]: "
@@ -39,8 +39,8 @@ if [ "$HOST" = "" ]; then
     HOST=$oldhostname
 fi
 
-if [ "$EMAIL" = "" ]; then
-    EMAIL=$oldemail
+if [ "$CONTACT" = "" ]; then
+    CONTACT=$oldemail
 fi
 
 if [ "$CONSUMER_KEY" = "" ]; then
@@ -60,7 +60,7 @@ if [ "$DB_PATH" = "" ]; then
 fi
 
 # save config values
-echo "EMAIL=$EMAIL" > .env
+echo "CONTACT=$CONTACT" > .env
 echo "HOST=$HOST" >> .env
 echo "CONSUMER_KEY=$CONSUMER_KEY" >> .env
 echo "CONSUMER_SECRET=$CONSUMER_SECRET" >> .env
@@ -71,7 +71,7 @@ echo
 echo "The config is saved now. You can edit it in the $PWD/.env file."
 
 # set traefik config options
-sed -ir "s/EMAIL/$EMAIL/g" traefik/traefik.toml
+sed -ir "s/EMAIL/$CONTACT/g" traefik/traefik.toml
 sed -ir "s/HOST/$HOST/g" traefik/traefik.toml
 
 # create files and set permissions
