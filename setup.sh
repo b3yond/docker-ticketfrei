@@ -48,8 +48,8 @@ echo
 echo "The config is saved now. You can edit it in the $PWD/.env file."
 
 # set traefik config options
-sed -ir "s/EMAIL/$CONTACT/g" traefik/traefik.toml
-sed -ir "s/HOST/$HOST/g" traefik/traefik.toml
+sed -i -r "s/EMAIL/$CONTACT/g" traefik/traefik.toml
+sed -i -r "s/HOST/$HOST/g" traefik/traefik.toml
 
 # create files and set permissions
 touch backend.log
