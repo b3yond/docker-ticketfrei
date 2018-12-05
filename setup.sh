@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "This is the docker-ticketfrei setup script."
 echo 
@@ -28,30 +28,13 @@ read -p "4) enter a custom database path[$DB_PATH]: " DB_PATH
 read -p "5) enter your twitter API consumer key[$CONSUMER_KEY]: " CONSUMER_KEY
 read -p "6) enter your twitter API consumer secret[$CONSUMER_SECRET]: " CONSUMER_SECRET
 
-# if default chosen, set default config
-if [ "$HOST" = "" ]; then
-    HOST=$oldhostname
-fi
-
-if [ "$CONTACT" = "" ]; then
-    CONTACT=$oldemail
-fi
-
-if [ "$CONSUMER_KEY" = "" ]; then
-    CONSUMER_KEY=$oldckey
-fi
-
-if [ "$CONSUMER_SECRET" = "" ]; then
-    CONSUMER_SECRET=$oldcsecret
-fi
-
-if [ "$PORT" = "" ]; then
-    PORT=$oldport
-fi
-
-if [ "$DB_PATH" = "" ]; then
-    DB_PATH=$olddbpath
-fi
+# if nothing entered, set default config
+HOST=${HOST:=$oldhostname}
+CONTACT=${CONTACT:=$oldemail}
+CONSUMER_KEY=${CONSUMER_KEY:=$oldckey}
+CONSUMER_SECRET=${CONSUMER_SECRET:=$oldcsecret}
+PORT=${PORT:=$oldport}
+DB_PATH=${DB_PATH:=$olddbpath}
 
 # save config values
 echo "CONTACT=$CONTACT" > .env
