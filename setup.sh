@@ -21,18 +21,12 @@ oldport=$PORT
 olddbpath=$DB_PATH
 
 # ask for config values
-echo -n "1) enter your domain name[$HOST]: "
-read HOST
-echo -n "2) enter your contact email[$CONTACT]: "
-read CONTACT
-echo -n "3) enter the port[$PORT]: "
-read PORT
-echo -n "4) enter a custom database path[$DB_PATH]: "
-read DB_PATH
-echo -n "5) enter your twitter API consumer key[$CONSUMER_KEY]: "
-read CONSUMER_KEY
-echo -n "6) enter your twitter API consumer secret[$CONSUMER_SECRET]: "
-read CONSUMER_SECRET
+read -p "1) enter your domain name[$HOST]: " HOST
+read -p "2) enter your contact email[$CONTACT]: " CONTACT
+read -p "3) enter the port[$PORT]: " PORT
+read -p "4) enter a custom database path[$DB_PATH]: " DB_PATH
+read -p "5) enter your twitter API consumer key[$CONSUMER_KEY]: " CONSUMER_KEY
+read -p "6) enter your twitter API consumer secret[$CONSUMER_SECRET]: " CONSUMER_SECRET
 
 # if default chosen, set default config
 if [ "$HOST" = "" ]; then

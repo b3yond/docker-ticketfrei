@@ -5,7 +5,7 @@ services:
     image: ticketfrei/frontend
     #    command: python3 frontend.py > /var/log/ticketfrei/frontend.log
     volumes:
-      - ./db.sqlite:/var/ticketfrei/db.sqlite
+      - ./db.sqlite:${DB_PATH}
       - ./frontend.log:/var/log/ticketfrei/error.log
     labels:
       - traefik.enable=true
@@ -23,7 +23,7 @@ services:
   backend:
     image: ticketfrei/backend
     volumes:
-      - ./db.sqlite:/var/ticketfrei/db.sqlite
+      - ./db.sqlite:${DB_PATH}
       - ./backend.log:/var/log/ticketfrei/backend.log
     environment:
       - CONSUMER_KEY=${CONSUMER_KEY}
