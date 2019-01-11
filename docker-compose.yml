@@ -4,7 +4,8 @@ services:
   frontend:
     build:
       context: ./frontend
-    # image: ticketfrei/frontend
+      image: ticketfrei/frontend
+    image: ticketfrei/frontend
     volumes:
       - ./db.sqlite:${DB_PATH}
       - ./frontend.log:/var/log/ticketfrei/error.log
@@ -24,7 +25,8 @@ services:
   backend:
     build:
       context: ./backend
-    # image: ticketfrei/backend
+      image: ticketfrei/backend
+    image: ticketfrei/backend
     volumes:
       - ./db.sqlite:${DB_PATH}
       - ./backend.log:/var/log/ticketfrei/backend.log
