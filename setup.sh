@@ -62,6 +62,9 @@ echo
 echo "Creating docker network, if it does not exist yet: "
 docker network create web
 echo
+echo "Building the docker containers: "
+docker-compose build
+echo 
 echo "Starting the docker containers: "
 docker-compose up -d
 
