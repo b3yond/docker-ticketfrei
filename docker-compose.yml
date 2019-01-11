@@ -2,9 +2,7 @@ version: '3.0'
 
 services:
   frontend:
-    build:
-      context: ./frontend
-      image: ticketfrei/frontend
+    build: ./frontend
     image: ticketfrei/frontend
     volumes:
       - ./db.sqlite:${DB_PATH}
@@ -23,9 +21,7 @@ services:
       - web
 
   backend:
-    build:
-      context: ./backend
-      image: ticketfrei/backend
+    build: ./backend
     image: ticketfrei/backend
     volumes:
       - ./db.sqlite:${DB_PATH}
