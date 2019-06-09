@@ -1,6 +1,7 @@
 *.swp
 *.pyc
 .idea/
+.env
 __pycache__/
 last_mention
 last_mail
